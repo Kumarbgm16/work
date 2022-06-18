@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test2
+  labels:
+    key: ui-web2
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+key: ui-web2
+  template:
+    metadata:
+labels:
+key: ui-web2
+    spec:
+nodeSelector:
+region: us
+containers:
+- name: load-app1
+image: nginx:latest
+ports:
+- containerPort: 80
